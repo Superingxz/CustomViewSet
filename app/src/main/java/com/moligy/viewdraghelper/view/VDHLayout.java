@@ -65,6 +65,11 @@ public class VDHLayout extends ViewGroup {
             {
                 mDragger.captureChildView(mEdgeTrackerView, pointerId);
             }
+
+            @Override
+            public void onEdgeTouched(int edgeFlags, int pointerId) {
+                super.onEdgeTouched(edgeFlags, pointerId);
+            }
         });
         mDragger.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }

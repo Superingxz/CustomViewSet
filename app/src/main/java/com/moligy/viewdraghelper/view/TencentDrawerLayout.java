@@ -4,11 +4,11 @@ import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+
 import com.nineoldandroids.view.ViewHelper;
 /**
  * 腾讯QQ侧边栏
@@ -176,7 +176,7 @@ public class TencentDrawerLayout extends ViewGroup {
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             //当松手后让其自动滚过去
             if (releasedChild == mTopView) {
-                int finalLeft = (xvel > 0 && mCurMovePrecent < 0.5) ? mBottomView.getMeasuredWidth() : 0;
+                int finalLeft = (mCurMovePrecent < 0.5) ? mBottomView.getMeasuredWidth() : 0;
                 mHelper.settleCapturedViewAt(finalLeft, mTopView.getTop());
                 invalidate();
             }
